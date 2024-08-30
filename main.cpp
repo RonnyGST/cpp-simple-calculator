@@ -1,7 +1,12 @@
 #include <iostream>
 #include <math.h>
+#include <stdlib.h>//Biblioteca que possui a função de limpar o console
 
 using namespace std;
+
+//Macro que contém a função de limpar o console.
+#define clear (void)system("clear||cls");
+#define space cout << endl;
 
 //Variáveis
 double num1, num2;
@@ -39,7 +44,8 @@ double sqrtBase(double x, double y){
 
 
 int main() {
-  #define output cout << "Result:\n" << result << endl;
+  clear
+  #define output space cout << "Result:\n" << result << endl;
 
   
   cout << "Please enter the operation to perform. Format: a+b | a-b | a*b | a/b | a^b | avb\n";
@@ -48,26 +54,34 @@ int main() {
   if(symbol == '+'){
     result = add(num1, num2);
     output;
+    space;
   } else if (symbol == '-'){
     result = sub(num1, num2);
     output;
+    space;
   } else if (symbol == '*'){
     result = mult(num1, num2);
     output;
+    space;
   } else if (symbol == '/'){
     result = div(num1, num2);
     output;
+    space;
   } else if (symbol == '^'){
     result = powBase(num1, num2);
     output;
+    space;
   } else if (symbol == 'v' || symbol == 'V'){
     result = sqrtBase(num1, num2);
     output;
+    space;
   } else {
+    space;
     cout << "Invalid operator" << endl;
+    space;
   }
 
-  cout << "Would you like to continue on the calculator? [y(yes)/n(no)]" << endl;
+  cout << "Would you like to continue on the calculator? [1(yes)/2(no)]" << endl;
   cin >> continueProgram;
 
   /*Operador ternário. São como if/else simples, mas em uma linha só.
@@ -75,7 +89,7 @@ int main() {
   Caso a condição seja verdadeira, irá executar o que foi escrito após a interrogação.
   Caso falso, irá executar o que foi escrito após os dois pontos ":". Os dois pontos e o conteúdo após ele são obrigatórios no operador ternário.
   */
-  (continueProgram == 'y' || continueProgram == 'Y' || continueProgram == ' ') ? cout << "Thank you for using the calculator!" << endl << main() : cout << "Good bye! :D";
+  (continueProgram == 'y' || continueProgram == 'Y' || continueProgram == '1') ? cout << "Thank you for using the calculator!" << endl << main() : cout << "Good bye! :D";
 
   return 0;
 }
